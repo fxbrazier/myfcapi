@@ -48,7 +48,6 @@ class UserController extends Controller
             $em = $this->get('doctrine.orm.entity_manager');
             $em->persist($user);
             $em->flush();
-            //return new JsonResponse(['message' => "Your account has been saved"]);
             return $user;
 
         } else {
@@ -56,29 +55,6 @@ class UserController extends Controller
         }
     }
 
-     /**
-     * @Rest\View(serializerGroups={"user"})
-     * @Rest\Put("/users/{id}")
-     *
-     * @ApiDoc(
-     *     description="Edit a user",
-     *     section="User",
-     *      headers={
-     *          {
-     *              "name"="X-Auth-Token",
-     *              "description"="Auth Token",
-     *              "required"=true
-     *          }
-     *     },
-     *     parameters={
-     *          {"name"="firstname", "dataType"="string", "required"=true, "description"="User firstname"},
-     *          {"name"="lastname", "dataType"="string", "required"=true, "description"="User lastname"},
-     *          {"name"="email", "dataType"="string", "required"=true, "description"="User email"},
-     *          {"name"="pseudonym", "dataType"="string", "required"=true, "description"="User pseudonym"},
-     *          {"name"="plainPassword", "dataType"="password", "required"=true, "description"="User password"},
-     *     }
-     * )
-     */
     public function updateUserAction(Request $request)
     {
         return $this->updateUser($request, true);
