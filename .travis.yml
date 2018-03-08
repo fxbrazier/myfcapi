@@ -44,8 +44,9 @@ install:
 
 # Run script
 script:
-  - phpunit
+  #- phpunit
+  - php bin/console server:start
 
 # After a build, send email notification with the build results
 notifications:
-email: your_email
+  email: fx.brazier@gmail.com
