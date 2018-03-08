@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Playerstats list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Shortlabel</th>
+                <th>Value</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for playerStat in playerStats %}
+            <tr>
+                <td><a href="{{ path('playerstat_show', { 'id': playerStat.id }) }}">{{ playerStat.id }}</a></td>
+                <td>{{ playerStat.label }}</td>
+                <td>{{ playerStat.shortLabel }}</td>
+                <td>{{ playerStat.value }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('playerstat_show', { 'id': playerStat.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('playerstat_edit', { 'id': playerStat.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('playerstat_new') }}">Create a new playerStat</a>
+        </li>
+    </ul>
+{% endblock %}

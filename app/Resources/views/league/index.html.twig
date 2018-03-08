@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Leagues list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Level</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for league in leagues %}
+            <tr>
+                <td><a href="{{ path('league_show', { 'id': league.id }) }}">{{ league.id }}</a></td>
+                <td>{{ league.name }}</td>
+                <td>{{ league.level }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('league_show', { 'id': league.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('league_edit', { 'id': league.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('league_new') }}">Create a new league</a>
+        </li>
+    </ul>
+{% endblock %}

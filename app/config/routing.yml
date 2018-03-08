@@ -1,0 +1,92 @@
+app_stadium:
+    resource: "@AppBundle/Controller/StadiumController.php"
+    type:     annotation
+
+app_player_stat:
+    resource: "@AppBundle/Controller/PlayerStatController.php"
+    type:     annotation
+
+app_player_position_type:
+    resource: "@AppBundle/Controller/PlayerPositionTypeController.php"
+    type:     annotation
+
+app_player_position:
+    resource: "@AppBundle/Controller/PlayerPositionController.php"
+    type:     annotation
+
+app_player:
+    resource: "@AppBundle/Controller/PlayerController.php"
+    type:     annotation
+
+app_page:
+    resource: "@AppBundle/Controller/PageController.php"
+    type:     annotation
+
+app_news:
+    resource: "@AppBundle/Controller/NewsController.php"
+    type:     annotation
+
+app_nationality:
+    resource: "@AppBundle/Controller/NationalityController.php"
+    type:     annotation
+
+app_match:
+    resource: "@AppBundle/Controller/MatchController.php"
+    type:     annotation
+
+app_league_result:
+    resource: "@AppBundle/Controller/LeagueResultController.php"
+    type:     annotation
+
+app_league:
+    resource: "@AppBundle/Controller/LeagueController.php"
+    type:     annotation
+
+app_jersey_type:
+    resource: "@AppBundle/Controller/JerseyTypeController.php"
+    type:     annotation
+
+app_jersey:
+    resource: "@AppBundle/Controller/JerseyController.php"
+    type:     annotation
+
+app_friend:
+    resource: "@AppBundle/Controller/FriendController.php"
+    type:     annotation
+
+app_event_type:
+    resource: "@AppBundle/Controller/EventTypeController.php"
+    type:     annotation
+
+app_event:
+    resource: "@AppBundle/Controller/EventController.php"
+    type:     annotation
+
+app_contrat:
+    resource: "@AppBundle/Controller/ContratController.php"
+    type:     annotation
+
+app_club_stat:
+    resource: "@AppBundle/Controller/ClubStatController.php"
+    type:     annotation
+
+#app_club:
+#    resource: "@AdminBundle/Controller/ClubController.php"
+#    type:     annotation
+
+admin:
+    resource: "@AdminBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+auth-tokens:
+    type:     rest
+    resource: AppBundle\Controller\AuthTokenController
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Stadia list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Current_capacity</th>
+                <th>Maximum_capacity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for stadium in stadia %}
+            <tr>
+                <td><a href="{{ path('stadium_show', { 'id': stadium.id }) }}">{{ stadium.id }}</a></td>
+                <td>{{ stadium.name }}</td>
+                <td>{{ stadium.currentcapacity }}</td>
+                <td>{{ stadium.maximumcapacity }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('stadium_show', { 'id': stadium.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('stadium_edit', { 'id': stadium.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('stadium_new') }}">Create a new stadium</a>
+        </li>
+    </ul>
+{% endblock %}

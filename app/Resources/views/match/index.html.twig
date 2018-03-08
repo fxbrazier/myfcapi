@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Matches list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Result</th>
+                <th>Winner</th>
+                <th>Loser</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for match in matches %}
+            <tr>
+                <td><a href="{{ path('match_show', { 'id': match.id }) }}">{{ match.id }}</a></td>
+                <td>{{ match.result }}</td>
+                <td>{{ match.winner }}</td>
+                <td>{{ match.loser }}</td>
+                <td>{% if match.date %}{{ match.date|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('match_show', { 'id': match.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('match_edit', { 'id': match.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('match_new') }}">Create a new match</a>
+        </li>
+    </ul>
+{% endblock %}

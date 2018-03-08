@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Leagueresults list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for leagueResult in leagueResults %}
+            <tr>
+                <td><a href="{{ path('leagueresult_show', { 'id': leagueResult.id }) }}">{{ leagueResult.id }}</a></td>
+                <td>{{ leagueResult.label }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('leagueresult_show', { 'id': leagueResult.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('leagueresult_edit', { 'id': leagueResult.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('leagueresult_new') }}">Create a new leagueResult</a>
+        </li>
+    </ul>
+{% endblock %}

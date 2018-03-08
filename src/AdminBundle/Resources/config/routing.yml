@@ -1,0 +1,4 @@
+##Api
+#routing_api:
+#  resource: '@AdminBundle/Resources/config/routing_api.yml'
+#  prefix: /api

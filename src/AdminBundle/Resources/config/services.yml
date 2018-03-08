@@ -1,0 +1,29 @@
+services:
+#    admin.example:
+#        class: AdminBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+
+    fc5.json_controller:
+        class: AdminBundle\Controller\JsonController
+        calls:
+            - [setContainer, ['@service_container']]
+
+    fc5.entities_order:
+        class: AdminBundle\Service\EntitiesOrder
+
+    fc5.paginator:
+        class: AdminBundle\Service\Paginator
+
+    fc5.entities_list_handler:
+        class: AdminBundle\Service\EntitiesListHandler
+        arguments:
+          - '@doctrine.orm.entity_manager'
+          - '@fc5.entities_order'
+          - '@fc5.paginator'
+          - '@fc5.json_controller'
+          - '@request_stack'
+
+    fc5.loadDataFixture:
+        class: AdminBundle\DataFixtures\ClubFixtures
+        tags: [doctrine.fixture.orm]

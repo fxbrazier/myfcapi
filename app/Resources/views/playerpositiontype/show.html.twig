@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Playerpositiontype</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ playerPositionType.id }}</td>
+            </tr>
+            <tr>
+                <th>Label</th>
+                <td>{{ playerPositionType.label }}</td>
+            </tr>
+            <tr>
+                <th>Shortlabel</th>
+                <td>{{ playerPositionType.shortLabel }}</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>{{ playerPositionType.color }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('playerpositiontype_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('playerpositiontype_edit', { 'id': playerPositionType.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

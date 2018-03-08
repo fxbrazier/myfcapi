@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Clubstat</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ clubStat.id }}</td>
+            </tr>
+            <tr>
+                <th>Label</th>
+                <td>{{ clubStat.label }}</td>
+            </tr>
+            <tr>
+                <th>Shortlabel</th>
+                <td>{{ clubStat.shortLabel }}</td>
+            </tr>
+            <tr>
+                <th>Value</th>
+                <td>{{ clubStat.value }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('clubstat_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('clubstat_edit', { 'id': clubStat.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

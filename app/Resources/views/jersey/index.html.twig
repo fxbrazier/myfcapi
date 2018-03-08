@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Jerseys list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Img</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for jersey in jerseys %}
+            <tr>
+                <td><a href="{{ path('jersey_show', { 'id': jersey.id }) }}">{{ jersey.id }}</a></td>
+                <td>{{ jersey.img }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('jersey_show', { 'id': jersey.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('jersey_edit', { 'id': jersey.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('jersey_new') }}">Create a new jersey</a>
+        </li>
+    </ul>
+{% endblock %}

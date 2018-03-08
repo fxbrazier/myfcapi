@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Nationality</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ nationality.id }}</td>
+            </tr>
+            <tr>
+                <th>Label</th>
+                <td>{{ nationality.label }}</td>
+            </tr>
+            <tr>
+                <th>Shortlabel</th>
+                <td>{{ nationality.shortLabel }}</td>
+            </tr>
+            <tr>
+                <th>Flag</th>
+                <td>{{ nationality.flag }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('nationality_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('nationality_edit', { 'id': nationality.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Playerpositions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Shortlabel</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for playerPosition in playerPositions %}
+            <tr>
+                <td><a href="{{ path('playerposition_show', { 'id': playerPosition.id }) }}">{{ playerPosition.id }}</a></td>
+                <td>{{ playerPosition.label }}</td>
+                <td>{{ playerPosition.shortLabel }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('playerposition_show', { 'id': playerPosition.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('playerposition_edit', { 'id': playerPosition.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('playerposition_new') }}">Create a new playerPosition</a>
+        </li>
+    </ul>
+{% endblock %}
