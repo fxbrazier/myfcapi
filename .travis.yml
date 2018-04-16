@@ -48,3 +48,11 @@ script:
 # After a build, send email notification with the build results
 notifications:
   email: fx.brazier@gmail.com
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "1c460653-ea7c-400c-adc7-bdcbe59f997f"
+  on: production
+  run: "rake db:migrate"
+  
