@@ -49,7 +49,7 @@ script:
   - php PHP_CodeSniffer/bin/phpcs -h
   - php PHP_CodeSniffer/bin/phpcbf -h
   #- security check
-  - php bin/console security:check --end-point=http://security.sensiolabs.org/check_lock
+  #- php bin/console security:check --end-point=http://security.sensiolabs.org/check_lock
 
 # After a build, send email notification with the build results
 notifications:
