@@ -39,18 +39,14 @@ install:
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - php bin/console doctrine:database:create --env=dev
   - php bin/console doctrine:schema:create --env=dev
-  # Install PHPCS
-  - composer global require "squizlabs/php_codesniffer=*"
-
-before_script:
-  - phpcs --version
-  - ./vendor/bin/phpcs -h
-  - ./vendor/bin/phpcbf -h
 
 # Run script
 script:
   #- phpunit
   - php bin/console server:start
+  - git clone https://github.com/squizlabs/PHP_CodeSniffer.git
+  - php PHP_CodeSniffer/bin/phpcs -h
+  - php PHP_CodeSniffer/bin/phpcbf -h
 
 # After a build, send email notification with the build results
 notifications:
