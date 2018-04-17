@@ -39,6 +39,13 @@ install:
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - php bin/console doctrine:database:create --env=dev
   - php bin/console doctrine:schema:create --env=dev
+  # Install PHPCS
+  - composer global require "squizlabs/php_codesniffer=*"
+
+before_script:
+  - phpcs --version
+  - ./vendor/bin/phpcs -h
+  - ./vendor/bin/phpcbf -h
 
 # Run script
 script:
@@ -47,12 +54,17 @@ script:
 
 # After a build, send email notification with the build results
 notifications:
-  email: fx.brazier@gmail.com
+  email:
+    recipients:
+      - fx.brazier@gmail.com
+    on_success: never
+    on_failure: always
 
+# Deploy on Heroku
 deploy:
   provider: heroku
+  app: myfcapi-dev
   api_key:
     secure: "1c460653-ea7c-400c-adc7-bdcbe59f997f"
-  on: production
-  run: "rake db:migrate"
+
   
